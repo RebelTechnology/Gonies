@@ -3,7 +3,7 @@ ELF=$(BUILD)/SlopeGenerator.elf
 BIN=$(BUILD)/SlopeGenerator.bin
 
 # Tool path
-TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_4-2016q2/bin
+TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_4-2016q3/bin
 STLINK=~/devel/stlink/build/Release
 
 # Tools

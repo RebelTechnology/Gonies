@@ -3,20 +3,20 @@ ELF=$(BUILD)/SlopeGenerator.elf
 BIN=$(BUILD)/SlopeGenerator.bin
 
 # Tool path
-TOOLROOT=~/devel/OwlWare/Tools/gcc-arm-none-eabi-5_4-2016q3/bin
-STLINK=~/devel/stlink/build/Release
+TOOLROOT ?=
+STLINK ?=
 
 # Tools
-CC=$(TOOLROOT)/arm-none-eabi-gcc
-CXX=$(TOOLROOT)/arm-none-eabi-g++
-LD=$(TOOLROOT)/arm-none-eabi-gcc
-AR=$(TOOLROOT)/arm-none-eabi-ar
-AS=$(TOOLROOT)/arm-none-eabi-as
-GDB=$(TOOLROOT)/arm-none-eabi-gdb
-OBJCOPY=$(TOOLROOT)/arm-none-eabi-objcopy
-OBJDUMP=$(TOOLROOT)/arm-none-eabi-objdump
-STFLASH=$(STLINK)/st-flash
-STUTIL=$(STLINK)/st-util
+CC=$(TOOLROOT)arm-none-eabi-gcc
+CXX=$(TOOLROOT)arm-none-eabi-g++
+LD=$(TOOLROOT)arm-none-eabi-gcc
+AR=$(TOOLROOT)arm-none-eabi-ar
+AS=$(TOOLROOT)arm-none-eabi-as
+GDB=$(TOOLROOT)arm-none-eabi-gdb
+OBJCOPY=$(TOOLROOT)arm-none-eabi-objcopy
+OBJDUMP=$(TOOLROOT)arm-none-eabi-objdump
+STFLASH=$(STLINK)st-flash
+STUTIL=$(STLINK)st-util
 DFUUTIL=dfu-util
 
 # Set up search path
@@ -64,7 +64,7 @@ debug: $(ELF)
 	$(GDB) -x gdbscript $(ELF)
 # 	bash -c "$(GDB) -x <(echo target extended localhost:4242) $(ELF)"
 
-flash: $(BIN)
+flash:
 	$(STFLASH) write $(BIN) 0x8000000
 
 stlink:
